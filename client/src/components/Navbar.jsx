@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <header className="cais-navbar">
       <div className="nav-container">
-        <Link to="/" className="brand">CAIS</Link>
+        <Link to="/" className="brand"><img src=""></img></Link>
         <button className="menu-toggle" onClick={toggleMenu}>
           ☰
         </button>

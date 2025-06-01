@@ -9,6 +9,7 @@ import {
   FaPhoneAlt,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+
 import "../styles/Footer.css";
 
 export default function Footer() {
@@ -17,14 +18,14 @@ export default function Footer() {
       <div className="footer-container">
         {/* Logo & Description */}
         <div className="footer-logo">
-          <img src="/logo.png" alt="CAIS Logo" />
+          <img src="" alt="CAIS Logo" />
           <p>
             CAIS – COMSATS Artificial Intelligence Society is committed to advancing AI knowledge
             and fostering innovation among students and researchers.
           </p>
         </div>
 
-        {/* Quick Menu */}
+        {/* Quick Links */}
         <div className="footer-links">
           <h4>Quick Links</h4>
           <Link to="/">Home</Link>
@@ -35,12 +36,12 @@ export default function Footer() {
           <Link to="/contact">Contact</Link>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Information */}
         <div className="footer-contact">
           <h4>Contact Us</h4>
-          <p><FaMapMarkerAlt /> COMSATS University, Lahore</p>
-          <p><FaPhoneAlt /> +92-321-1234567</p>
-          <p><FaEnvelope /> cais@comsats.edu.pk</p>
+          <p><FaMapMarkerAlt className="icon" /> COMSATS University, Lahore</p>
+          <p><FaPhoneAlt className="icon" /> +92-321-1234567</p>
+          <p><FaEnvelope className="icon" /> cais@comsats.edu.pk</p>
           <div className="footer-socials">
             <a href="#"><FaFacebookF /></a>
             <a href="#"><FaTwitter /></a>
@@ -50,7 +51,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Copyright */}
+      {/* Footer Bottom */}
       <div className="footer-bottom">
         © {new Date().getFullYear()} CAIS - COMSATS AI Society. All rights reserved.
       </div>
