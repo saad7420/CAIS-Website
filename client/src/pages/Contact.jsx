@@ -1,24 +1,46 @@
-function Contact() {
+import { useState } from "react";
+import "../styles/Contact.css";
+
+export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Optional: send formData to backend API
+    setStatus("✅ Message sent successfully!");
+    setFormData({ name: "", email: "", message: "" });
+  };
+
   return (
-    <div className="container mt-4">
-      <h2 className="text-center mb-4">Contact Us</h2>
-      <form className="mx-auto" style={{ maxWidth: "600px" }}>
-        <div className="mb-3">
-          <label htmlFor="name" className="form-label">Full Name</label>
-          <input type="text" className="form-control" id="name" required />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="email" className="form-label">Email Address</label>
-          <input type="email" className="form-control" id="email" required />
-        </div>
-        <div className="mb-3">
-          <label htmlFor="message" className="form-label">Your Message</label>
-          <textarea className="form-control" id="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" className="btn btn-primary w-100">Send</button>
+    <div className="contact-container">
+      <h2>Contact Us</h2>
+      <p>We’d love to hear from you! Reach out with questions, feedback, or collaboration ideas.</p>
+
+      {status && <div className="form-status">{status}</div>}
+
+      <form onSubmit={handleSubmit} className="contact-form">
+        <label>
+          Full Name
+          <input type="text" id="name" value={formData.name} onChange={handleChange} required />
+        </label>
+
+        <label>
+          Email Address
+          <input type="email" id="email" value={formData.email} onChange={handleChange} required />
+        </label>
+
+        <label>
+          Your Message
+          <textarea id="message" rows="4" value={formData.message} onChange={handleChange} required />
+        </label>
+
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );
 }
-
-export default Contact;
