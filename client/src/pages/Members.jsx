@@ -1,22 +1,23 @@
-function Members() {
-  return (
-    <div className="container mt-4">
-      <h2 className="text-center mb-4">Our Team Members</h2>
-      <p className="text-center">Meet the minds behind CAIS-COMSATS.</p>
+import React from "react";
+import "../styles/Members.css"; // Make sure this path matches your project structure
 
-      <div className="row">
+export default function Members() {
+  return (
+    <div className="members-container">
+      <h2 className="section-title">Our Team Members</h2>
+      <p className="section-subtitle">Meet the minds behind CAIS-COMSATS.</p>
+
+      <div className="members-grid">
         {[1, 2, 3].map((member) => (
-          <div key={member} className="col-md-4 mb-4">
-            <div className="card">
-              <img
-                src={`https://source.unsplash.com/300x200/?person,ai,${member}`}
-                className="card-img-top"
-                alt="Team Member"
-              />
-              <div className="card-body">
-                <h5 className="card-title">Member {member}</h5>
-                <p className="card-text">Role: AI Enthusiast</p>
-              </div>
+          <div key={member} className="member-card">
+            <img
+              src={`https://source.unsplash.com/300x200/?person,ai,${member}`}
+              alt={`Member ${member}`}
+              className="member-img"
+            />
+            <div className="member-info">
+              <h3>Member {member}</h3>
+              <p>Role: AI Enthusiast</p>
             </div>
           </div>
         ))}
@@ -24,5 +25,3 @@ function Members() {
     </div>
   );
 }
-
-export default Members;

@@ -1,7 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBinoculars, faBullseye, faGraduationCap, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import "../pages/styles/home.css";
+import "../styles/Home.css";
 
 const Button = ({ className, children }) => (
   <button className={className}>{children}</button>
