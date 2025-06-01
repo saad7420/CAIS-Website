@@ -8,7 +8,7 @@ export default function Members() {
       <p className="section-subtitle">Meet the minds behind CAIS-COMSATS.</p>
 
       <div className="members-grid">
-        {[1, 2, 3].map((member) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((member) => (
           <div key={member} className="member-card">
             <img
               src={`https://source.unsplash.com/300x200/?person,ai,${member}`}
@@ -22,38 +22,7 @@ export default function Members() {
           </div>
         ))}
       </div>
-      <br></br>
-      <div className="members-grid">
-        {[1, 2, 3].map((member) => (
-          <div key={member} className="member-card">
-            <img
-              src={`https://source.unsplash.com/300x200/?person,ai,${member}`}
-              alt={`Member ${member}`}
-              className="member-img"
-            />
-            <div className="member-info">
-              <h3>Member {member}</h3>
-              <p>Role: AI Enthusiast</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <br></br>
-      <div className="members-grid">
-        {[1, 2, 3].map((member) => (
-          <div key={member} className="member-card">
-            <img
-              src={`https://source.unsplash.com/300x200/?person,ai,${member}`}
-              alt={`Member ${member}`}
-              className="member-img"
-            />
-            <div className="member-info">
-              <h3>Member {member}</h3>
-              <p>Role: AI Enthusiast</p>
-            </div>
-          </div>
-        ))}
-      </div>
+    
     </div>
   );
 }

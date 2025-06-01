@@ -1,0 +1,49 @@
+:root {
+  --cais-primary: #2c2e83;
+  --cais-bg: #f9fafb;
+  --cais-text: #1f2937;
+}
+
+.gallery-container {
+  background: var(--cais-bg);
+  padding: 4rem 2rem;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.gallery-title {
+  font-size: 2.5rem;
+  color: var(--cais-primary);
+  margin-bottom: 0.5rem;
+}
+
+.gallery-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
