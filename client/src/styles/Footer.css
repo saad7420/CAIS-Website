@@ -1,0 +1,89 @@
+/* Footer.css */
+.footer {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  padding: 4rem 2rem 2rem;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo img {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.footer-logo p {
+  color: #cbd5e1;
+  max-width: 300px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footer-links,
+.footer-contact {
+  min-width: 180px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: #facc15;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.footer-links a {
+  display: block;
+  color: #e2e8f0;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #facc15;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  margin: 0.5rem 0;
+}
+
+.footer-contact p svg {
+  margin-right: 8px;
+  color: #facc15;
+}
+
+.footer-socials {
+  margin-top: 1rem;
+}
+
+.footer-socials a {
+  display: inline-block;
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  margin-right: 10px;
+  transition: color 0.3s;
+}
+
+.footer-socials a:hover {
+  color: #facc15;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #1e293b;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
