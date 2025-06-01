@@ -1,104 +1,87 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "../styles/Registration.css";
 
 export default function Registration() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    regNumber: "",
-    phone: "",
-    description: "",
-  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const [status, setStatus] = useState("");
-
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const res = await axios.post("http://localhost:5000/api/registration", formData);
-      if (res.data.success) {
-        setStatus("✅ Registered successfully!");
-        setFormData({ name: "", email: "", regNumber: "", phone: "", description: "" });
-      } else {
-        setStatus("❌ Something went wrong.");
-      }
-    } catch (err) {
-      setStatus("❌ Error submitting form.");
-      console.error(err);
-    }
+    setIsSubmitted(true);
   };
+
+  if (isSubmitted) {
+    return (
+      <div className="registration-success">
+        <div className="success-card">
+          <div className="icon-circle">
+            <svg className="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+          </div>
+          <h3>Registration Complete!</h3>
+          <p>Thank you for registering with CAIS. We'll send you event details and updates soon.</p>
+          <button className="btn-primary" onClick={() => setIsSubmitted(false)}>
+            Register for Another Event
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="registration-container">
-      <h2>CAIS Registration Form</h2>
-      <p>Join us in shaping the future of Artificial Intelligence at COMSATS.</p>
+      <h1>Event Registration</h1>
+      <p>Register for upcoming AI workshops, seminars, and research sessions</p>
+      <form onSubmit={handleSubmit} className="registration-form">
+        <div className="form-group">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required />
+          
+        </div>
 
-      {status && <div className="form-status">{status}</div>}
+        <div className="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your.email@example.com" required />
+        </div>
 
-      <form className="registration-form" onSubmit={handleSubmit}>
-        <label>
-          Full Name
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
+        <div className="form-group">
+          <label>Department</label>
+          <select required>
+            <option value="">Select your department</option>
+            <option value="cs">Computer Science</option>
+            <option value="se">Software Engineering</option>
+            <option value="ai">Artificial Intelligence</option>
+            <option value="ds">Data Science</option>
+            <option value="ee">Electrical Engineering</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
 
-        <label>
-          Email Address
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
+        <div className="form-group">
+          <label>Event Selection</label>
+          <select required>
+            <option value="">Choose an event</option>
+            <option value="ai-workshop">AI Workshop Series</option>
+            <option value="ml-seminar">Machine Learning Seminar</option>
+            <option value="research-session">Research Presentation</option>
+            <option value="industry-talk">Industry Expert Talk</option>
+            <option value="hackathon">AI Hackathon</option>
+          </select>
+        </div>
 
-        <label>
-          Registration Number
-          <input
-            type="text"
-            name="regNumber"
-            value={formData.regNumber}
-            onChange={handleChange}
-            required
-          />
-        </label>
+        <div className="form-group">
+          <label>Additional Information</label>
+          <textarea placeholder="Tell us about your interests or experience in AI..." rows="4"></textarea>
+        </div>
 
-        <label>
-          Phone Number
-          <input
-            type="tel"
-            name="phone"
-            value={formData.phone}
-            onChange={handleChange}
-            required
-          />
-        </label>
+        <div className="form-check-inline">
+          <input type="checkbox" id="terms" required />
+          <label htmlFor="terms">
+              I agree to the terms and conditions and consent to receive event updates
+          </label>
+        </div>
 
-        <label>
-          Why do you want to join?
-          <textarea
-            name="description"
-            rows="4"
-            value={formData.description}
-            onChange={handleChange}
-          ></textarea>
-        </label>
-
-        <button type="submit">Register</button>
+        <button type="submit" className="btn-primary">Register for Event</button>
       </form>
     </div>
   );
