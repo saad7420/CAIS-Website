@@ -1,146 +1,129 @@
-/* Contact.css */
+/* Blog.css */
 
-.contact-page {
-  padding: 4rem 2rem;
-  background-color: #f9f9f9;
+.blog-page {
+  min-height: 100vh;
+  background-color: #ffffff;
+  padding: 60px 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.contact-header {
+.blog-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 40px;
 }
 
-.contact-header h1 {
+.blog-header h1 {
   font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-  color: #222;
+  margin-bottom: 10px;
+  color: #1a202c;
 }
 
-.contact-header p {
+.blog-header p {
   font-size: 1.1rem;
-  color: #555;
+  color: #4a5568;
 }
 
-.contact-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-@media (min-width: 768px) {
-  .contact-content {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-}
-
-.contact-form-container,
-.contact-info {
-  flex: 1;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.contact-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-form label {
-  margin-top: 1rem;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
-  color: #333;
-}
-
-.contact-form input,
-.contact-form textarea {
-  padding: 0.75rem;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1rem;
-  resize: none;
-}
-
-.contact-form button {
-  margin-top: 1.5rem;
-  padding: 0.75rem;
-  background-color: #003366;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.contact-form button:hover {
-  background-color: #0055aa;
-}
-
-.contact-info h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #003366;
-}
-
-.contact-info p {
-  font-size: 1rem;
-  color: #444;
-  margin: 1rem 0;
-}
-
-.contact-info strong {
-  display: block;
-  color: #000;
-  margin-bottom: 0.3rem;
-}
-
-.contact-info i {
-  margin-right: 0.5rem;
-  color: #003366;
-}
-
-.contact-submitted {
+.blog-categories {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 80vh;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 40px;
 }
 
-.submitted-box {
-  background-color: #e6ffe6;
-  border: 1px solid #66bb66;
-  padding: 2rem 3rem;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 400px;
-}
-
-.submitted-box h2 {
-  color: #228822;
-  margin-bottom: 1rem;
-}
-
-.submitted-box p {
+.category-btn {
+  padding: 10px 18px;
+  border: 1px solid #ccc;
+  background-color: #f3f4f6;
   color: #333;
-  margin-bottom: 2rem;
-}
-
-.submitted-box button {
-  background-color: #228822;
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
 }
 
-.submitted-box button:hover {
-  background-color: #1a6d1a;
+.category-btn:hover {
+  background-color: #e2e8f0;
+}
+
+.category-btn.active {
+  background-color: #2b6cb0;
+  color: #fff;
+  border-color: #2b6cb0;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.blog-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.blog-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+}
+
+.blog-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 16px;
+}
+
+.blog-category {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #4a5568;
+  background-color: #edf2f7;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.blog-date {
+  font-size: 0.85rem;
+  color: #718096;
+}
+
+.blog-content h3 {
+  font-size: 1.2rem;
+  margin: 12px 0;
+  color: #2d3748;
+}
+
+.blog-content p {
+  font-size: 0.95rem;
+  color: #4a5568;
+  line-height: 1.5;
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #2b6cb0;
+  text-decoration: none;
+}
+
+.read-more:hover {
+  text-decoration: underline;
+}
+
+.no-posts {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #999;
+  margin-top: 50px;
 }
