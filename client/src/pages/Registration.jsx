@@ -1,7 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
+import "../styles/Registration.css";
 
-function Registration() {
+export default function Registration() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -22,7 +23,6 @@ function Registration() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Adjust endpoint if needed
       const res = await axios.post("http://localhost:5000/api/registration", formData);
       if (res.data.success) {
         setStatus("✅ Registered successfully!");
@@ -37,75 +37,69 @@ function Registration() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2 className="mb-4">CAIS Registration Form</h2>
+    <div className="registration-container">
+      <h2>CAIS Registration Form</h2>
+      <p>Join us in shaping the future of Artificial Intelligence at COMSATS.</p>
 
-      {status && <div className="alert alert-info">{status}</div>}
+      {status && <div className="form-status">{status}</div>}
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label className="form-label">Full Name</label>
+      <form className="registration-form" onSubmit={handleSubmit}>
+        <label>
+          Full Name
           <input
             type="text"
             name="name"
-            className="form-control"
             value={formData.name}
             onChange={handleChange}
             required
           />
-        </div>
+        </label>
 
-        <div className="mb-3">
-          <label className="form-label">Email Address</label>
+        <label>
+          Email Address
           <input
             type="email"
             name="email"
-            className="form-control"
             value={formData.email}
             onChange={handleChange}
             required
           />
-        </div>
+        </label>
 
-        <div className="mb-3">
-          <label className="form-label">Registration Number</label>
+        <label>
+          Registration Number
           <input
             type="text"
             name="regNumber"
-            className="form-control"
             value={formData.regNumber}
             onChange={handleChange}
             required
           />
-        </div>
+        </label>
 
-        <div className="mb-3">
-          <label className="form-label">Phone Number</label>
+        <label>
+          Phone Number
           <input
             type="tel"
             name="phone"
-            className="form-control"
             value={formData.phone}
             onChange={handleChange}
             required
           />
-        </div>
+        </label>
 
-        <div className="mb-3">
-          <label className="form-label">Why do you want to join?</label>
+        <label>
+          Why do you want to join?
           <textarea
             name="description"
-            className="form-control"
             rows="4"
             value={formData.description}
             onChange={handleChange}
           ></textarea>
-        </div>
+        </label>
 
-        <button type="submit" className="btn btn-primary">Register</button>
+        <button type="submit">Register</button>
       </form>
     </div>
   );
 }
-
-export default Registration;

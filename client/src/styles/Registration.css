@@ -1,0 +1,80 @@
+:root {
+  --cais-primary: #2c2e83;
+  --cais-accent: #6b6bbd;
+  --cais-light: #f1f5f9;
+  --cais-white: #ffffff;
+  --cais-yellow: #facc15;
+}
+
+.registration-container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  background: var(--cais-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.registration-container h2 {
+  color: var(--cais-primary);
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.registration-container p {
+  text-align: center;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.form-status {
+  background: var(--cais-light);
+  color: var(--cais-primary);
+  padding: 0.75rem;
+  border-left: 4px solid var(--cais-yellow);
+  margin-bottom: 1.5rem;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.registration-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  color: #333;
+}
+
+.registration-form input,
+.registration-form textarea {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #f9fafb;
+  outline-color: var(--cais-accent);
+}
+
+.registration-form button {
+  background-color: var(--cais-yellow);
+  color: var(--cais-primary);
+  padding: 0.75rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.registration-form button:hover {
+  background-color: #fbbf24;
+}
