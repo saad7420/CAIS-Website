@@ -1,58 +1,146 @@
-// src/pages/Home.jsx
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBinoculars, faBullseye, faGraduationCap, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import "../pages/styles/home.css";
+
+const Button = ({ className, children }) => (
+  <button className={className}>{children}</button>
+);
+
+const Card = ({ children }) => <div className="card">{children}</div>;
+const CardContent = ({ children }) => <div>{children}</div>;
+
+const ImageCarousel = ({ images }) => (
+  <div className="carousel">
+    {images.map((img, idx) => (
+      <div key={idx} className="carousel-slide">
+        <img src={img.src} alt={img.alt} />
+        <div className="carousel-caption">
+          <h3>{img.title}</h3>
+          <p>{img.description}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+);
 
 export default function Home() {
+  const carouselImages = [
+    {
+      src: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&h=600",
+      alt: "Students Collaboration",
+      title: "AI Workshop Series",
+      description: "Hands-on collaboration sessions for AI learning",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&h=600",
+      alt: "Tech Conference",
+      title: "Industry Expert Talks",
+      description: "Learning from leading AI professionals",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&h=600",
+      alt: "AI Research Lab",
+      title: "Research Laboratory",
+      description: "Cutting-edge AI research facilities",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&h=600",
+      alt: "Programming Workspace",
+      title: "Coding Sessions",
+      description: "Collaborative programming environments",
+    },
+  ];
+
   return (
-    <div className="text-center">
-      {/* Logo */}
-      <img
-        src="/logo.png"
-        alt="CAIS Logo"
-        className="mb-4"
-        style={{ maxWidth: "150px" }}
-      />
-
-      {/* Vision & Mission */}
-      <h2 className="text-primary">Vision</h2>
-      <p>
-        To promote AI education, research, and innovation at COMSATS University,
-        empowering students to shape the future.
-      </p>
-
-      <h2 className="text-primary">Mission</h2>
-      <p>
-        Build a strong community passionate about Artificial Intelligence,
-        providing opportunities for learning, collaboration, and impact.
-      </p>
-
-      {/* Objectives */}
-      <h2 className="text-primary mt-5">Objectives</h2>
-      <ul className="list-group list-group-flush mb-4">
-        <li className="list-group-item">💡 Organize workshops & seminars</li>
-        <li className="list-group-item">🤖 AI project exhibitions</li>
-        <li className="list-group-item">🧠 Research and collaboration</li>
-        <li className="list-group-item">📚 Skill development sessions</li>
-      </ul>
-
-      {/* Description */}
-      <p className="lead">
-        The CAIS – COMSATS AI Society is a platform for students, researchers,
-        and enthusiasts to explore the vast world of AI through events,
-        research, and teamwork.
-      </p>
-
-      {/* Gallery Preview */}
-      <div className="row mt-5">
-        {[1, 2, 3, 4].map((img, i) => (
-          <div key={i} className="col-md-3 mb-3">
+    <div className="home">
+      <section className="hero">
+        <div className="overlay"></div>
+        <div className="hero-content">
+          <div className="hero-text">
+            <h1>
+              Welcome to <span>CAIS</span>
+            </h1>
+            <p className="tagline">COMSATS Artificial Intelligence Society</p>
+            <p className="description">
+              Empowering the next generation of AI innovators through
+              cutting-edge research, collaborative projects, and industry
+              partnerships.
+            </p>
+            <div className="hero-buttons">
+              <Button className="primary-btn">Join CAIS</Button>
+              <Button className="secondary-btn">Learn More</Button>
+            </div>
+          </div>
+          <div className="hero-image">
             <img
-              src={`https://source.unsplash.com/400x300/?technology,ai,${i}`}
-              alt={`Gallery ${i}`}
-              className="img-fluid rounded shadow-sm"
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&h=600"
+              alt="AI Technology Workspace"
             />
           </div>
-        ))}
-      </div>
+        </div>
+      </section>
+
+      <section className="foundation">
+        <h2>Our Foundation</h2>
+        <p className="subheading">
+          Driving innovation in artificial intelligence through education,
+          research, and community building.
+        </p>
+        <div className="foundation-cards">
+          <Card>
+            <CardContent>
+              <div className="icon-wrapper">
+                <FontAwesomeIcon icon={faBinoculars} />
+              </div>
+              <h3>Vision</h3>
+              <p>
+                To be the leading AI society that fosters innovation, research
+                excellence, and ethical AI development while bridging the gap
+                between academia and industry.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <div className="icon-wrapper">
+                <FontAwesomeIcon icon={faBullseye} />
+              </div>
+              <h3>Mission</h3>
+              <p>
+                To provide students with hands-on AI experience through
+                workshops, research projects, and industry collaborations while
+                promoting responsible AI practices.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <div className="icon-wrapper">
+                <FontAwesomeIcon icon={faGraduationCap} />
+              </div>
+              <h3>Objectives</h3>
+              <ul>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> Foster AI research culture</li>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> Industry partnerships</li>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> Skill development programs</li>
+                <li><FontAwesomeIcon icon={faCheckCircle} /> Ethical AI advocacy</li>
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="events">
+        <h2>Event Highlights</h2>
+        <p>
+          Capturing moments from our AI workshops, conferences, and
+          collaborative sessions.
+        </p>
+        <ImageCarousel images={carouselImages} />
+      </section>
     </div>
   );
 }
